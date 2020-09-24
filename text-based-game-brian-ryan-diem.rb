@@ -3,15 +3,7 @@ def main
 
     # ***************TITLE & BACK STORY***************
     # displays the title and back story
-    storyline =  'WELCOME TO YOUR COVID-19 ADVENTURE
-    You are a type A germaphobe 3 weeks into the COVID pandemic
-    It\'s a normal tuesday morning you wake up get breakfast you start getting ready for your normal virtual work day
-    As you look into the mirror you realize you are not camera ready
-    You take a look at the clock and you realize you have 1 hour before work starts
-    Because of your personality you need to get a haircut...NOW!!
-    You think to yourself, "If I hurry I can get a haircut and make it back in time".....as long as nothing happens
-    In a rush you quickly grab your hat and keys and your homeade banana bread and rush out the door.
-    Hit enter to continue.'
+    storyline =  "You just woke up for your big day. After three long, hard months of your LEARN Academy, you are now ready to interview for your internship!"
 
     # puts storyline
     storyline.each_char do |value|
@@ -53,48 +45,46 @@ end
 
 #******************First OBSTACLE*****************
 
-def first_obstacle
+def check_in
 
-    puts 'Your favorite barber is only a few blocks away. How do you want to get there?'
-    def first_obstacle_options
+    puts 'What do you drink to wake up?'
+    def check_in_options
+      puts 'coffee or tea?'
+    end
+
         #****************FIRST Obstacle OPTIONS***************
-        puts render_ascii_art './bike.txt'
-        puts '
-        a. Drive your car
-        b. Public transportation
-        c. Walk
-
-        Enter your choice, a, b, or c:'
-
         # get the users's choice
         user_choice = gets.chomp.downcase
         puts `clear`
 
 
-        if user_choice == 'a'
-            puts render_ascii_art './car.txt'
-            puts 'Your battery is dead since you havent driven in 3 weeks...TRY AGAIN!
-            Hit enter to continue.'
-            gets
-            puts `clear`
-            first_obstacle_options
-        elsif user_choice == 'b'
-            puts render_ascii_art './bus.txt'
-            puts 'Someone sneezes on you and you go home to shower...TRY AGAIN!
-            Hit enter to continue.'
-            gets
-            puts `clear`
-            first_obstacle_options
-        elsif user_choice == 'c'
-            puts "You promptly start walking down the sidewalk thinking to yourself, \"This won't take very long!\""
-            second_obstacle
-        else
-            puts 'Not a valid input try again'
-            first_obstacle_options
-        end
-    end
-    first_obstacle_options
-end
+        if user_choice == 'coffee'
+          puts 
+#
+#         if user_choice == 'a'
+#             puts render_ascii_art './car.txt'
+#             puts 'Your battery is dead since you havent driven in 3 weeks...TRY AGAIN!
+#             Hit enter to continue.'
+#             gets
+#             puts `clear`
+#             first_obstacle_options
+#         elsif user_choice == 'b'
+#             puts render_ascii_art './bus.txt'
+#             puts 'Someone sneezes on you and you go home to shower...TRY AGAIN!
+#             Hit enter to continue.'
+#             gets
+#             puts `clear`
+#             first_obstacle_options
+#         elsif user_choice == 'c'
+#             puts "You promptly start walking down the sidewalk thinking to yourself, \"This won't take very long!\""
+#             second_obstacle
+#         else
+#             puts 'Not a valid input try again'
+#             first_obstacle_options
+#         end
+#     end
+#     first_obstacle_options
+# end
 
 #******************Second OBSTACLE*****************
 
