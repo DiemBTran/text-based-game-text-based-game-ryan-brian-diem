@@ -1,21 +1,253 @@
+$image = './ascii/smiley.txt'
 # create the main function that starts the story
-def main
-
+def start
     # ***************TITLE & BACK STORY***************
     # displays the title and back story
-    storyline =  "You just woke up for your big day. After three long, hard months of your LEARN Academy, you are now ready to interview for your internship!"
+    storyline =  "You just woke up for your big day. After three long, hard months of study at LEARN Academy, you are now ready to interview for your internship!"
 
+    puts render_ascii_art './ascii/learn.txt'
     # puts storyline
     storyline.each_char do |value|
         putc value
         sleep 0.01
     end
 
-    gets
+    def sleep_module
+        #****************SECOND Obstacle OPTIONS***************
+        puts "
+
+        Did you get a good night's rest?
+
+        a. Yes
+        b. No
+
+        Enter your choice, a or b?"
+
+        # get the users's choice
+        user_choice = gets.chomp.downcase
+        puts `clear`
+
+
+        if user_choice == 'b'
+            puts 'What woke you up?'
+            user_choice = gets.chomp.downcase
+            puts `clear`
+                if user_choice == "flies"
+                    $image = './ascii/david.txt'
+                    puts "David text"
+                    interview_module
+                elsif user_choice == "ghost dog"
+                    $image = './ascii/rachael.txt'
+                    puts "Rachael text"
+                    interview_module
+                else
+                    puts "I'm sorry to hear that. Let's get you dressed!"
+                    clothes_module
+                end
+        elsif user_choice == 'a'
+            puts "Two REM cycles? Awesome! Let's get you dressed!"
+            clothes_module
+        else
+            puts "I'm sorry, what was that again?"
+            sleep_module
+        end
+    end
+    sleep_module
+end
+
+def clothes_module
+    puts "
+        What's your style for the day?
+        
+        a. Casual
+        b. Business Casual
+        c. Business Formal
+
+        Enter your choice, a, b, or c?"
+
+    user_choice = gets.chomp.downcase
     puts `clear`
 
-    # call the function that displays the first obstacle
-    first_obstacle
+    if user_choice == 'a'
+        puts "Okay, if you're sure...
+
+        (Somewhere a single tear rolls down Bryan's face.)
+
+        Let's get your morning drink!"
+        drink_module
+    elsif user_choice == 'b'
+        puts "Riding that line just right!
+        
+        Do you want to wear glasses for the first time?
+        
+        a. Yes
+        b. No
+        
+        Enter your choice, a or b?"
+
+        user_choice = gets.chomp.downcase
+        puts `clear`
+
+        if user_choice == 'a'
+            $image = './ascii/bach.txt'
+            puts "Bach text"
+            interview_module
+        else
+            puts "Let's get your morning drink!"
+            drink_module
+        end
+    elsif user_choice == 'c'
+        puts "Check the reflection:
+        
+        Noice.
+        Very noice.
+        Let's get your morning drink!"
+        drink_module
+    elsif user_choice == 'jedi'
+        $image = './ascii/ryan.txt'
+            puts "Ryan text"
+            interview_module
+    else
+        puts "I'm sorry, what was that again?"
+        clothes_module
+    end
+end
+
+def drink_module
+    puts"
+    Coffee or tea?
+
+    a. Coffee
+    b. Tea
+        
+    Enter your choice, a or b?"
+
+    user_choice = gets.chomp.downcase
+    puts `clear`
+
+    if user_choice == 'a'
+        puts "YOWZA! That's a jolt!
+
+        Does it make you want to do anything special?
+            
+        a. Sing!
+        b. Poop. Definitely poop.    
+        c. Wait... what?
+        
+        Enter your choice, a, b, or c?"
+
+        user_choice = gets.chomp.downcase
+        puts `clear`
+
+        if user_choice == 'a'
+            $image = './ascii/joel.txt'
+            puts "Joel text"
+            interview_module
+        elsif user_choice == 'b'
+            $image = './ascii/diem.txt'
+            puts "Diem text"
+            interview_module
+        elsif user_choice == 'c'
+            puts "Don't worry about it.
+
+            Did you make it in your own espresso machine?
+
+            a. Yes
+            b. No
+        
+            Enter your choice, a or b?"
+            
+            user_choice = gets.chomp.downcase
+            puts `clear`
+
+            if user_choice == "a"
+                $image = './ascii/chuck.txt'
+                puts "Chuck text"
+                interview_module
+            elsif user_choice == "b"
+                puts "Okay. Let's go to your desk!"
+                desk_module
+            else
+                puts "I'm sorry, let's start over."
+                drink_module
+            end
+        end
+    elsif user_choice == "b"
+        puts "That leaf water sure does go down smooth...
+
+            It's almost time!
+            How do you feel?
+            
+            a. Confident! I think I might want to prepare other people for this very moment someday!
+            b. Confident! It's just like an audition for a role!
+            c. I have literally forgotten everything I've ever learned.
+    
+            Enter your choice, a, b, or c?"
+
+            user_choice = gets.chomp.downcase
+            puts `clear`
+
+            if user_choice == 'a'
+                $image = './ascii/sarah.txt'
+                puts "Sarah text"
+                interview_module
+            elsif user_choice == 'b'
+                $image = './ascii/drew.txt'
+                puts "Drew text"
+                interview_module
+            elsif user_choice == 'c'
+                puts "Meh, I'm sure it'll be fine."
+                interview_module
+            else
+                puts "I'm sorry, let's start over."
+                drink_module
+            end
+    elsif user_choice == "water"
+        $image = './ascii/brian.txt'
+        puts "Brian text"
+        interview_module
+    elsif user_choice == "pumpkin pie"
+        $image = './ascii/andee.txt'
+        puts "Andee text"
+        interview_module
+    else
+        puts "I'm sorry, what was that again?"
+        drink_module
+    end
+end
+
+def desk_module
+    puts "
+    Two quick questions:
+    Do you need to move it?
+    And is it in a tree?
+    
+    a. I need to move it.
+    b. It's in a tree.
+    c. Okay, I can understand needing to move it. But why would it be in a tree?
+    
+    Enter your choice, a, b, or c?"
+
+    user_choice = gets.chomp.downcase
+    puts `clear`
+
+    if user_choice == 'a'
+        $image = './ascii/nate.txt'
+        puts "Nate text"
+        interview_module
+    elsif user_choice == 'b'
+        $image = './ascii/matt.txt'
+        puts "Matt text"
+        interview_module
+    elsif user_choice == 'c'
+        puts "It would take too long to explain.
+        
+        Let's go to the interview!"
+        interview_module
+    else
+        puts "I'm sorry, what was that again?"
+        desk_module
+    end
 end
 
 def render_ascii_art filename
@@ -24,198 +256,22 @@ def render_ascii_art filename
   end
 end
 
-# Restart game method
-def restart
-    puts 'Would you like to quit (q) or restart (r) ?'
+def interview_module
 
-    user_choice = gets.chomp.downcase
+    puts"
+        Now's the time!
+        Press RETURN to open zoom and turn on your video!"
+
+    gets
     puts `clear`
+    
+    puts render_ascii_art $image
+    puts"
+        Looking GOOD!
+        You're going to nail this!
+        DELTA! DELTA! DELTA!
+        LET'S GOOOOOOOOOOO!!!"
 
-    if user_choice == 'q'
-        puts 'THANKS FOR PLAYING!!'
-    elsif user_choice == 'r'
-        main
-    else
-        'Not a valid input. Please enter either "q" or "r".'
-        restart
-    end
 end
 
-# Define the first options function
-
-#******************First OBSTACLE*****************
-
-def check_in
-
-    puts 'What do you drink to wake up?'
-    def check_in_options
-      puts 'coffee or tea?'
-    end
-
-        #****************FIRST Obstacle OPTIONS***************
-        # get the users's choice
-        user_choice = gets.chomp.downcase
-        puts `clear`
-
-
-        if user_choice == 'coffee'
-          puts 
-#
-#         if user_choice == 'a'
-#             puts render_ascii_art './car.txt'
-#             puts 'Your battery is dead since you havent driven in 3 weeks...TRY AGAIN!
-#             Hit enter to continue.'
-#             gets
-#             puts `clear`
-#             first_obstacle_options
-#         elsif user_choice == 'b'
-#             puts render_ascii_art './bus.txt'
-#             puts 'Someone sneezes on you and you go home to shower...TRY AGAIN!
-#             Hit enter to continue.'
-#             gets
-#             puts `clear`
-#             first_obstacle_options
-#         elsif user_choice == 'c'
-#             puts "You promptly start walking down the sidewalk thinking to yourself, \"This won't take very long!\""
-#             second_obstacle
-#         else
-#             puts 'Not a valid input try again'
-#             first_obstacle_options
-#         end
-#     end
-#     first_obstacle_options
-# end
-
-#******************Second OBSTACLE*****************
-
-def second_obstacle
-    puts 'Five mins into your walk you stumble across a crowd of people waiting in line outside the store.  How do you get through the crowd?'
-
-    def second_obstacle_options
-        #****************SECOND Obstacle OPTIONS***************
-        puts render_ascii_art './crowd.txt'
-        puts '
-        a. You politely ask the crowd of people to move
-        b. You offer your homemade banana bread
-        c. You ask them what are they standing in line for
-
-        Enter your choice, a, b, or c:'
-
-        # get the users's choice
-        user_choice = gets.chomp.downcase
-        puts `clear`
-
-
-        if user_choice == 'a'
-            puts render_ascii_art './punch.txt'
-            puts 'You get a haymaker to the face, you go home to disinfect to clean your bloody nose...TRY AGAIN! Hit enter key to continue...'
-            gets
-            puts `clear`
-            second_obstacle_options
-        elsif user_choice == 'b'
-            puts 'The crowd successfully parts and you continue your journey.'
-            third_obstacle
-        elsif user_choice == 'c'
-            puts render_ascii_art './tp.txt'
-            puts 'They say TP and you quickly realize you need TP so you stand in line to buy TP - you go home...TRY AGAIN! Hit enter key to continue..'
-            gets
-            puts `clear`
-            second_obstacle_options
-        else
-            puts 'Not a valid input try again'
-            second_obstacle_options
-        end
-    end
-    second_obstacle_options
-end
-#******************Third OBSTACLE*******************
-
-def third_obstacle
-    puts 'Suddenly a tiger appears. You figure that the tiger escaped from the SD zoo because of budget cuts. The tiger is approaching but hasnt spotted you yet, what do you do?'
-
-
-
-    def third_obstacle_options
-        #****************THIRD Obstacle OPTIONS***************
-        puts render_ascii_art './tiger.txt'
-        puts '
-        a. You run away out of fear
-        b. You pick up the nearest stick and try and fight it off
-        c. You channel your inner tiger king
-
-        Enter your choice, a, b, or c:'
-
-        # get the users's choice
-        user_choice = gets.chomp.downcase
-        puts `clear`
-
-        if user_choice == 'a'
-            puts render_ascii_art './run.txt'
-            puts 'You go home and never get your hair cut...TRY AGAIN! Hit enter key to continue...'
-            gets
-            puts `clear`
-            third_obstacle_options
-        elsif user_choice == 'b'
-            puts render_ascii_art './fight.txt'
-            puts 'Even though you thought you were tough as nails to just walk up to a tiger, you immediately mauled by the tiger. In the process, you get your hair ripped out...no need for haircut...YOU LOSE. TRY AGAIN! Hit enter key to continue...'
-            gets
-            puts `clear`
-            third_obstacle_options
-        elsif user_choice == 'c'
-            puts 'You befriended the tiger...thanks Netflix...and you continue your journey!'
-            final_obstacle
-        else
-            puts 'Not a valid input try again'
-            third_obstacle_options
-        end
-    end
-    third_obstacle_options
-end
-
-#*****************FINAL OBSTACLE*******************
-
-def final_obstacle
-    puts 'You finally make it to the barber shop and you see the notice on the door NO MASK NO ENTRY....what do you do?'
-
-    def final_obstacle_options
-        #****************THIRD Obstacle OPTIONS***************
-        puts render_ascii_art './sign.txt'
-        puts '
-        a. Pretend you didnt see it and walk in anyways.
-        b. Feeling defeated, you just go home.
-        c. Call your newly befriended tiger to intimidate the owner to give you a haircut.
-
-        Enter your choice, a, b, or c:'
-
-        # get the users's choice
-        user_choice = gets.chomp.downcase
-        puts `clear`
-
-        if user_choice == 'a'
-            puts render_ascii_art './jail.txt'
-            puts 'You are arrested and you go to jail...“NO HAIRCUT FOR YOU!“...TRY AGAIN!!
-            Hit enter to continue.'
-            gets
-            puts `clear`
-            final_obstacle_options
-        elsif user_choice == 'b'
-
-            puts 'You arrive at home and tell your roommate about your adventure you just had. They tell you that they picked up a new shelter-in-place hobby of cutting hair. "You could have just asked me for a haircut! :)" they said. Exasperated, but relieved, you get your haircut and make it to work in time.'
-            puts render_ascii_art './win.txt'
-            restart
-        elsif user_choice == 'c'
-            puts render_ascii_art './jail.txt'
-            puts 'Your barber calls the cops -- and animal control. Your tiger friend is tranquilized and you are tazed. You go to jail and do not get your haircut. YOU LOSE!!...TRY AGAIN! Hit enter key to continue...'
-            gets
-            puts `clear`
-            final_obstacle_options
-        else
-            puts 'Not a valid input try again'
-            final_obstacle_options
-        end
-    end
-    final_obstacle_options
-end
-
-# call the main function
-main
+start
